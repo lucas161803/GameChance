@@ -1,4 +1,4 @@
-namespace budgetTest
+namespace GameChanceTest
 {
     public interface IRandom
     {
