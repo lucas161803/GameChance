@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GameChanceTest
 {
@@ -6,6 +7,11 @@ namespace GameChanceTest
     {
         public string Query(List<string> roomIds)
         {
+            if (roomIds.Any())
+            {
+                return "project2";
+            }
+
             return "project1";
         }
     }
