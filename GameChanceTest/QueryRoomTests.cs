@@ -27,14 +27,6 @@ namespace GameChanceTest
         }
     }
 
-    public class RoomSelector
-    {
-        public string Query()
-        {
-            return "project1";
-        }
-    }
-
     public class RoomRow
     {
         public string ProjectId { get; set; }
