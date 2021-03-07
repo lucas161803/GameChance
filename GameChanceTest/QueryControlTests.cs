@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace GameChanceTest
 {
     [TestFixture]
-    public class ControlRowSelectTests
+    public class QueryControlTests
     {
         [SetUp]
         public void SetUp()
