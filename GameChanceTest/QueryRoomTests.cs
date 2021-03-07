@@ -18,16 +18,16 @@ namespace GameChanceTest
         }
 
         [Test]
-        public void probability_512_and_sgame_is_project1()
+        public void input_0_get_row_probability_512_and_sgame_is_project1()
         {
-            GivenRoomIdList();
+            GivenRoomIdList("0");
             SgameShouldBe("project1");
         }
 
         [Test]
-        public void input_100_get_row_probability_512_and_sgame_is_project2()
+        public void input_1_get_row_probability_512_and_sgame_is_project2()
         {
-            GivenRoomIdList("100");
+            GivenRoomIdList("1");
             SgameShouldBe("project2");
         }
 
