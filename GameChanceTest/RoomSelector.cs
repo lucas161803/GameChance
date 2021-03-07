@@ -5,14 +5,9 @@ namespace GameChanceTest
 {
     public class RoomSelector
     {
-        public string Query(List<string> roomIds)
+        public string Query(List<string> roomIds, Dictionary<string, List<RoomRow>> roomTable)
         {
-            if (roomIds.Any())
-            {
-                return "project2";
-            }
-
-            return "project1";
+            return roomTable[roomIds[0]][0].Sgame;
         }
     }
 }
