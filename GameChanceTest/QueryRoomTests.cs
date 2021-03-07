@@ -19,7 +19,7 @@ namespace GameChanceTest
     {
         public string Query()
         {
-            throw new System.NotImplementedException();
+            return "project1";
         }
     }
 
