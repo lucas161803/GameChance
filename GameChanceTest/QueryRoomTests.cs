@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace GameChanceTest
@@ -15,14 +16,22 @@ namespace GameChanceTest
         }
 
         [Test]
-        public void probability_512_and_sgame_not_empty_returns_sgame_name()
+        public void probability_512_and_sgame_is_project1()
         {
-            SgameShouldBe("project1");
+            SgameShouldBe("project1", new List<string>());
         }
 
-        private void SgameShouldBe(string expected)
+        [Test]
+        public void input_100_get_row_probability_512_and_sgame_is_project2()
         {
-            var query = _roomSelector.Query();
+            var roomIds = new List<string> {"100"};
+
+            SgameShouldBe("project2", roomIds);
+        }
+
+        private void SgameShouldBe(string expected, List<string> roomIds)
+        {
+            var query = _roomSelector.Query(roomIds);
             Assert.AreEqual(expected, query);
         }
     }
