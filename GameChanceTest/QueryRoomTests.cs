@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 namespace GameChanceTest
@@ -8,6 +9,7 @@ namespace GameChanceTest
     public class QueryRoomTests
     {
         private RoomSelector _roomSelector;
+        private List<string> _roomIds;
 
         [SetUp]
         public void SetUp()
@@ -18,20 +20,25 @@ namespace GameChanceTest
         [Test]
         public void probability_512_and_sgame_is_project1()
         {
-            SgameShouldBe("project1", new List<string>());
+            GivenRoomIdList();
+            SgameShouldBe("project1");
         }
 
         [Test]
         public void input_100_get_row_probability_512_and_sgame_is_project2()
         {
-            var roomIds = new List<string> {"100"};
-
-            SgameShouldBe("project2", roomIds);
+            GivenRoomIdList("100");
+            SgameShouldBe("project2");
         }
 
-        private void SgameShouldBe(string expected, List<string> roomIds)
+        private void GivenRoomIdList(params string[] roomIds)
         {
-            var query = _roomSelector.Query(roomIds);
+            _roomIds = roomIds.ToList();
+        }
+
+        private void SgameShouldBe(string expected)
+        {
+            var query = _roomSelector.Query(_roomIds);
             Assert.AreEqual(expected, query);
         }
     }
