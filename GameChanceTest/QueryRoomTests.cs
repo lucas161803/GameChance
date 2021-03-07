@@ -6,12 +6,24 @@ namespace GameChanceTest
     [TestFixture]
     public class QueryRoomTests
     {
+        private RoomSelector _roomSelector;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _roomSelector = new RoomSelector();
+        }
+
         [Test]
         public void probability_512_and_sgame_not_empty_returns_sgame_name()
         {
-            var roomSelector = new RoomSelector();
-            var query = roomSelector.Query();
-            Assert.AreEqual("project1", query);
+            SgameShouldBe("project1");
+        }
+
+        private void SgameShouldBe(string expected)
+        {
+            var query = _roomSelector.Query();
+            Assert.AreEqual(expected, query);
         }
     }
 
